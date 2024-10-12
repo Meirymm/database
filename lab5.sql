@@ -50,7 +50,7 @@ INSERT INTO orders (ord_no, purch_amt, ord_date, customer_id, salesman_id) VALUE
 ---2
 SELECT SUM(purch_amt) AS total_purchase_amount FROM orders;--3
 SELECT AVG(purch_amt) AS average_purchase_amount FROM orders;---4
-SELECT COUNT(*) AS customer_count FROM customers;--5
+SELECT COUNT(cust_name) AS customer_count FROM customers;--5
 SELECT MIN(purch_amt) AS minimum_purchase_amount FROM orders;---6
 SELECT * FROM customers
 WHERE cust_name LIKE '%b';---7
