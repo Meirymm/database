@@ -23,7 +23,7 @@ SELECT * FROM countries WHERE name = 'New York';
 CREATE INDEX idx_employees_name_surname ON employees (first_name, last_name);
 SELECT * FROM employees WHERE employees.first_name = 'Meyrim' AND employees.last_name = 'Sultan';
 ---2
-CREATE UNIQUE INDEX idx_employees_salary ON employees (salary);
+CREATE INDEX idx_employees_salary ON employees (salary);
 SELECT * FROM employees WHERE salary < 150 AND salary > 70;
 ---3
 CREATE INDEX idx_employees_name_substring ON employees ((substring(first_name FROM 1 FOR 4)));
