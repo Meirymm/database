@@ -34,3 +34,4 @@ CREATE INDEX idx_departments_budget ON departments (budget);
 SELECT * FROM employees e
     JOIN departments d ON d.department_id = e.department_id WHERE
 d. budget > 150 AND e.salary < 150;
+---5
