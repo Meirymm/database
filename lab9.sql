@@ -127,3 +127,5 @@ BEGIN
 END;
 $$
 LANGUAGE plpgsql;
+SELECT complex_calculation(5, 'Meyrim Sultan');
+
