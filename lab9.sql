@@ -110,11 +110,11 @@ CREATE FUNCTION complex_calculation(num INT, str VARCHAR) RETURNS VARCHAR(200) A
     DECLARE num_computation INT;
     DECLARE str_manipulation VARCHAR;
     BEGIN
-        num_computation = (num + 10) - 5;
-        str_manipulation = REPLACE('City Olympics', 'City', 'World');
-        RETURN CONCAT('String result: ', str_manipulation, '; Number result: ', num_computation);
+        num_computation = (num + 37) - 2;
+        str_manipulation = REPLACE('Meyrim Sultan', 'Meyrim', 'Jole');
+        RETURN CONCAT('Str result: ', str_manipulation, '; Num result: ', num_computation);
     END;
     $$
 LANGUAGE plpgsql;
 
-SELECT complex_calculation(5, 'City Olympic');
+SELECT complex_calculation(5, 'Sultan Meyrim');
