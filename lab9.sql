@@ -105,15 +105,25 @@ SELECT * FROM update_salary('Meyrim');
 
 
 --7
-CREATE FUNCTION complex_calculation(num INT, str VARCHAR) RETURNS VARCHAR(200) AS
-    $$
-    DECLARE num_computation INT;
-    DECLARE str_manipulation VARCHAR;
-    BEGIN
-        num_computation = (num + 37) - 2;
-        str_manipulation = REPLACE('Meyrim Sultan', 'Meyrim', 'Jole');
+CREATE FUNCTION complex_calculation(num INT, str VARCHAR) RETURNS VARCHAR AS
+$$
+DECLARE
+    num_computation INT;
+    str_manipulation VARCHAR;
+BEGIN
+    -- Main Block
+    main_block: BEGIN
+        -- Subblock 1
+        numeric_block: BEGIN
+            num_computation := (num + 37) - 2; 
+        END numeric_block;
+
+        -- Subblock 2:
+        string_block: BEGIN
+            str_manipulation := REPLACE(str, 'Meyrim', 'Jole'); 
+        END string_block;
         RETURN CONCAT('Str result: ', str_manipulation, '; Num result: ', num_computation);
-    END;
-    $$
+    END main_block;
+END;
+$$
 LANGUAGE plpgsql;
-SELECT complex_calculation(5, 'Meyrim Sultan');
