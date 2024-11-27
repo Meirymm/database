@@ -116,5 +116,4 @@ CREATE FUNCTION complex_calculation(num INT, str VARCHAR) RETURNS VARCHAR(200) A
     END;
     $$
 LANGUAGE plpgsql;
-
-SELECT complex_calculation(5, 'Sultan Meyrim');
+SELECT complex_calculation(5, 'Meyrim Sultan');
