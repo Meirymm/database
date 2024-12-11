@@ -41,11 +41,11 @@ COMMIT;
 SELECT * FROM Books;
 
 ---2
+BEGIN;
 DO $$
 DECLARE
     book_stock INT;
 BEGIN
-    BEGIN;
     SELECT quantity INTO book_stock FROM Books WHERE book_id = 3;
     IF book_stock < 10 THEN
         RAISE NOTICE 'Недостаточно книг на складе.';
@@ -53,14 +53,12 @@ BEGIN
     ELSE
         INSERT INTO Orders (order_id, book_id, customer_id, order_date, quantity)
         VALUES (2, 3, 102, CURRENT_DATE, 10);
-
         UPDATE Books
         SET quantity = quantity - 10
         WHERE book_id = 3;
         COMMIT;
         RAISE NOTICE 'Транзакция успешно завершена.';
     END IF;
-
 END $$;
 
 SELECT * FROM Orders;
